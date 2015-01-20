@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity$DummySectionFragment" >
+
+    <TextView
+        android:id="@+id/text_chat"
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:text="@string/title_example"
+        style="@style/AppTheme.FormText" />
+    
+    <LinearLayout 
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <EditText android:id="@+id/edit_chat"
+            android:layout_width="0dip"
+            android:layout_height="30dip"
+            android:layout_weight="1"
+            android:layout_gravity="bottom"
+            android:inputType="textUri"
+            style="@style/AppTheme.FormEditText" />
+        
+        <Button 
+            android:id="@+id/button_send"
+            android:layout_width="wrap_content"
+            android:layout_height="30dip"
+            android:text="@string/ui_send"
+            style="@style/AppTheme.FormButton" />
+        
+    </LinearLayout>
+
+</LinearLayout>
