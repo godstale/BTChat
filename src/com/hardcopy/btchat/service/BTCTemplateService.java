@@ -380,6 +380,9 @@ public class BTCTemplateService extends Service {
 						StringBuilder requestUrl = new StringBuilder("http://184.106.153.149/update?");
 						if(parameters != null && parameters.length() > 0)
 							requestUrl.append(parameters);
+						
+						//Logs.d("# Find thingspeak command. URL = "+requestUrl);
+						
 						HttpAsyncTask task = new HttpAsyncTask(mHTTPListener, 0, requestUrl.toString(), HttpInterface.REQUEST_TYPE_GET);
 						task.execute();
 						mCommandParser.resetParser();
@@ -426,6 +429,7 @@ public class BTCTemplateService extends Service {
 		{
 			if(strResult != null && strResult.length() > 0 
 					&& resultCode == HttpInterface.MSG_HTTP_RESULT_CODE_OK){
+				Logs.d(TAG, "# Result code = "+strResult);
 			}
 		}	// End of OnReceiveHttpRequestResult()
 		

@@ -1,5 +1,7 @@
 package com.hardcopy.btchat.contents;
 
+import com.hardcopy.btchat.utils.Logs;
+
 public class CommandParser {
 
 	public static final int COMMAND_NONE = -1;
@@ -40,17 +42,22 @@ public class CommandParser {
 	private int checkCommand() {
 		int prefixIndex = mReceivedString.lastIndexOf(THINGSPEAK_PREFIX);
 		if(prefixIndex > -1) {
+			//Logs.d("# found thingspeak prefix");
 			// Check if there is suffix string [*]
 			int suffixIndex = mReceivedString.lastIndexOf(COMMAND_SUFFIX);
 			if(suffixIndex > -1) {
+				//Logs.d("# found [*] suffix");
 				if(prefixIndex + THINGSPEAK_PREFIX.length() <= suffixIndex) {
 					// cut the parameter string from buffer
 					mCommand = COMMAND_THINGSPEAK;
 					mParameters = mReceivedString.substring(prefixIndex + THINGSPEAK_PREFIX.length(), suffixIndex);
 					mReceivedString = new StringBuilder();
+					//Logs.d("# parameters = "+mParameters);
 					return COMMAND_THINGSPEAK;
 				}
 			}
+		} else {
+			
 		}
 		
 		// Nothing found... Empty buffer if it's too big
