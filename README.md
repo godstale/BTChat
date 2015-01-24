@@ -8,5 +8,6 @@ BT chatting between arduino and android. (supports IoT feature)
 IoT 지원을 위해 특정 문자열이 들어올 경우 자동으로 HTTP Request를 보낼 수 있도록 작성되었습니다. 아래와 같은 문자열을 인식합니다.
 
 Whenever BTChat find message like : thingspeak:key=xxx&field1=xxx[*]
+
 Automatically sends a HTTP Request : http://184.106.153.149/update?key=xxx&field1=xxx
 
